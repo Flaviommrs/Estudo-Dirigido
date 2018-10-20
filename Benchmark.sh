@@ -2,9 +2,9 @@
 
 TESTS_SCRIPT=BenchmarkScripts/example.py
 
-EXAMPLE_RESULTS_PATH_ENERGY=Results/CPU/ExampleResultsEnergy.txt
-EXAMPLE_RESULTS_PATH_PERFORMANCE=Results/CPU/ExampleResultsPerformance.txt
-EXAMPLE_RESULTS_PATH_ENERGY_PER_SECOND=Results/CPU/ExampleResultsEnergyPerSecond.txt
+EXAMPLE_RESULTS_PATH_ENERGY=Results/Energy/CPU/ExampleResultsEnergy.txt
+EXAMPLE_RESULTS_PATH_PERFORMANCE=Results/Performance/CPU/ExampleResultsPerformance.txt
+EXAMPLE_RESULTS_PATH_ENERGY_PER_SECOND=Results/EnergyPerSecond/ExampleResultsEnergyPerSecond.txt
 
 echo "==========Começando Testes=========="
 echo "==========Benchmark - CPU =========="
@@ -20,5 +20,7 @@ perf stat -a -e "power/energy-cores/" -o $EXAMPLE_RESULTS_PATH_ENERGY python3 $T
 perf stat -a -o $EXAMPLE_RESULTS_PATH_PERFORMANCE python3 $TESTS_SCRIPT
 
 echo "> Finished Test with $TESTS_SCRIPT"
+
+python3 GraphMaker.py
 
 echo "END OF THE TESTS"
