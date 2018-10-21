@@ -6,9 +6,6 @@ EXAMPLE_RESULTS_PATH_ENERGY=Results/Energy/CPU/ExampleResultsEnergy.txt
 EXAMPLE_RESULTS_PATH_PERFORMANCE=Results/Performance/CPU/ExampleResultsPerformance.txt
 EXAMPLE_RESULTS_PATH_ENERGY_PER_SECOND=Results/EnergyPerSecond/CPU/ExampleResultsEnergyPerSecond.txt
 
-echo "==========  Starting Tests =========="
-echo "========== Benchmark - CPU =========="
-
 echo "> Starting Test with $TESTS_SCRIPT"
 
 touch $EXAMPLE_RESULTS_PATH_ENERGY

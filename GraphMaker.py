@@ -10,10 +10,10 @@ if __name__ == "__main__":
 	files = None
 
 	if path == "CPU":
-		print ("Making CPU Graphs - This Make Take a While")
+		print ("Making CPU Graphs - This May Take a While")
 		files = glob.glob('Results/EnergyPerSecond/CPU/*.txt')
 	elif path == "GPU":
-		print ("Making GPU Graphs - This Make Take a While")
+		print ("Making GPU Graphs - This May Take a While")
 		files = glob.glob('Results/EnergyPerSecond/GPU/*.txt')	
 
 	for fileName in files:
