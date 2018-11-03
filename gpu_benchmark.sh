@@ -4,4 +4,4 @@ echo "> Creating Enviroment"
 
 mkdir -p "Results/GPU/"
 
-sh BenchmarkScripts/example_gpu_benchmark.sh
+sh BenchmarkScripts/resnet50_gpu_benchmark.sh

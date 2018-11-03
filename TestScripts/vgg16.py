@@ -30,28 +30,27 @@ model.fit(x_train, y_train,
           shuffle=False,
           validation_data=(x_train, y_train))
 
+for layer in model.layers[:11]:
+	layer.trainable = False
+for layer in model.layers[11:]:
+	layer.trainable = True
 
-# for layer in model.layers[:132]:
-# 	layer.trainable = False
-# for layer in model.layers[132:]:
-# 	layer.trainable = True
+model.layers[19].trainable = False
+model.layers[20].trainable = False
+model.layers[21].trainable = False
 
-# model.layers[175].trainable = False
-# model.layers[176].trainable = False
-# model.layers[177].trainable = False
+model.compile(loss='sparse_categorical_crossentropy',
+              optimizer=Adam(lr=0.0001),
+              metrics=['acc'])
 
-# model.compile(loss='sparse_categorical_crossentropy',
-#               optimizer=Adam(lr=0.0001),
-#               metrics=['acc'])
+x_train = np.random.normal(loc=127, scale=127, size=(50, 224,224,3))
+y_train = np.array([0,1]*25)
+x_train = vgg16.preprocess_input(x_train)
 
-# x_train = np.random.normal(loc=127, scale=127, size=(50, 224,224,3))
-# y_train = np.array([0,1]*25)
-# x_train = resnet50.preprocess_input(x_train)
+print(model.evaluate(x_train, y_train, batch_size=50, verbose=0))
 
-# print(model.evaluate(x_train, y_train, batch_size=50, verbose=0))
-
-# model.fit(x_train, y_train,
-#           epochs=2,
-#           batch_size=50,
-#           shuffle=False,
-#           validation_data=(x_train, y_train))
+model.fit(x_train, y_train,
+          epochs=2,
+          batch_size=50,
+          shuffle=False,
+          validation_data=(x_train, y_train))

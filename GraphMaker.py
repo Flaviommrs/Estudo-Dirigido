@@ -44,5 +44,7 @@ if __name__ == "__main__":
 		name, _= os.path.splitext(name)
 		plt.plot(time_stamp, energy)
 		plt.xlabel('Time')
-		plt.ylabel('Energy (J)')
+		plt.ylabel('Energy (power)')
 		plt.savefig(path + '/'+ name + '.png')
+		plt.clf()
+		file.close()

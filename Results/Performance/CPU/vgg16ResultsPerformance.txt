@@ -1,0 +1,16 @@
+# started on Sat Nov  3 19:05:11 2018
+
+
+ Performance counter stats for 'system wide':
+
+    2031934,999295      cpu-clock (msec)          #    8,000 CPUs utilized          
+         1.942.172      context-switches          #    0,956 K/sec                  
+            36.777      cpu-migrations            #    0,018 K/sec                  
+        35.642.435      page-faults               #    0,018 M/sec                  
+ 3.180.230.004.023      cycles                    #    1,565 GHz                    
+ 4.114.220.817.202      instructions              #    1,29  insn per cycle         
+   132.522.838.860      branches                  #   65,220 M/sec                  
+     1.430.655.997      branch-misses             #    1,08% of all branches        
+
+     253,980502294 seconds time elapsed
+

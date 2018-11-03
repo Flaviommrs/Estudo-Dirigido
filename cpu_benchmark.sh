@@ -9,6 +9,8 @@ mkdir -p "Results/EnergyPerSecond/CPU/"
 echo "==========  Starting Tests =========="
 echo "========== Benchmark - CPU =========="
 
-sh BenchmarkScripts/example_cpu_benchmark.sh
+sh BenchmarkScripts/resnet50_cpu_benchmark.sh
+sh BenchmarkScripts/vgg16_cpu_benchmark.sh
+sh BenchmarkScripts/inceptionV3_cpu_benchmark.sh
 
 python3 GraphMaker.py CPU
