@@ -23,10 +23,10 @@ x_train = np.random.normal(loc=127, scale=127, size=(50, 224,224,3))
 y_train = np.array([0,1]*25)
 x_train = vgg16.preprocess_input(x_train)
 
-print(model.evaluate(x_train, y_train, batch_size=50, verbose=0))
+print(model.evaluate(x_train, y_train, batch_size=25, verbose=0))
 model.fit(x_train, y_train,
           epochs=2,
-          batch_size=50,
+          batch_size=25,
           shuffle=False,
           validation_data=(x_train, y_train))
 
@@ -47,10 +47,10 @@ x_train = np.random.normal(loc=127, scale=127, size=(50, 224,224,3))
 y_train = np.array([0,1]*25)
 x_train = vgg16.preprocess_input(x_train)
 
-print(model.evaluate(x_train, y_train, batch_size=50, verbose=0))
+print(model.evaluate(x_train, y_train, batch_size=12, verbose=0))
 
 model.fit(x_train, y_train,
           epochs=2,
-          batch_size=50,
+          batch_size=12,
           shuffle=False,
           validation_data=(x_train, y_train))
