@@ -13,8 +13,7 @@ touch $EXAMPLE_RESULTS_PATH_PERFORMANCE
 touch $EXAMPLE_RESULTS_PATH_ENERGY_PER_SECOND
 
 perf stat -a -e "power/energy-cores/" -I 1000 -o $EXAMPLE_RESULTS_PATH_ENERGY_PER_SECOND python3 $TESTS_SCRIPT
-perf stat -a -e "power/energy-cores/" -o $EXAMPLE_RESULTS_PATH_ENERGY python3 $TESTS_SCRIPT
-perf stat -a -o $EXAMPLE_RESULTS_PATH_PERFORMANCE python3 $TESTS_SCRIPT
+perf stat -a -e cpu-clock,"power/energy-cores/","cpu-cycles/" -o $EXAMPLE_RESULTS_PATH_ENERGY python3 $TESTS_SCRIPT
 
 echo "> Finished Test with $TESTS_SCRIPT"
 
