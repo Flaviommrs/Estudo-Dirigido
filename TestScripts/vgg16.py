@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
   print("STARTING TRAINING WITH IMAGE NUMBER : {}".format(index))
 
-  epochs = 50
+  epochs = 20
 
   base_model = vgg16.VGG16
 

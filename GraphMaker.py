@@ -2,6 +2,7 @@ import glob
 import matplotlib.pyplot as plt
 import os
 import sys
+import numpy as np
 
 if __name__ == "__main__":
 
@@ -29,8 +30,6 @@ if __name__ == "__main__":
 
 		number_of_files = 0
 
-		print(imageDir)
-
 		for fileName in files:
 			number_of_files = number_of_files + 1
 			file = open(fileName, "r+")
@@ -49,8 +48,6 @@ if __name__ == "__main__":
 			energy_list = ''.join(energy_list)
 			energy = float(energy_list)
 
-			print("energy: {}".format(energy))
-
 			energy_sum = energy + energy_sum
 
 			time_line = content[9]
@@ -66,8 +63,7 @@ if __name__ == "__main__":
 			time = float(time_list)
 
 			time_sum = time + time_sum
-
-			print("time: {}".format(time))
+			file.close()
 
 		vgg_energy.append(energy_sum/number_of_files)
 		vgg_time.append(time_sum/number_of_files)
@@ -101,8 +97,6 @@ if __name__ == "__main__":
 			energy_list = ''.join(energy_list)
 			energy = float(energy_list)
 
-			print("energy: {}".format(energy))
-
 			energy_sum = energy + energy_sum
 
 			time_line = content[9]
@@ -118,37 +112,39 @@ if __name__ == "__main__":
 			time = float(time_list)
 
 			time_sum = time + time_sum
-
-			print("time: {}".format(time))
+			file.close()
 
 		resnet_energy.append(energy_sum/number_of_files)
 		resnet_time.append(time_sum/number_of_files)
 
+	label = ["image {}".format(i) for i in range(1, 101)]
 
-	plt.bar(range(len(vgg_energy)),vgg_energy)
-	plt.xlabel('Image')
+	figsize = 1920/80, 1080/80
+
+	fig, ax = plt.subplots(dpi=80, figsize=figsize)
+	ax.bar(label,vgg_energy,width=0.8, align='center', edgecolor='gray')
 	plt.ylabel('Energy (joules)')
+	plt.xticks(rotation=90)
 	plt.savefig('Results/CPU/VGG/ImagesEnergy.png')
-	plt.clf()
-	file.close()
+	plt.close()
 
-	plt.bar(range(len(vgg_time)),vgg_time)
-	plt.xlabel('Image')
-	plt.ylabel('Energy (joules)')
-	plt.savefig('Results/CPU/VGG/ImagesTime.png')
-	plt.clf()
-	file.close()
-
-	plt.bar(range(len(resnet_energy)),resnet_energy)
-	plt.xlabel('Image')
-	plt.ylabel('Energy (joules)')
-	plt.savefig('Results/CPU/RESNET50/ImagesEnergy.png')
-	plt.clf()
-	file.close()
-
-	plt.bar(range(len(resnet_time)),resnet_time)
-	plt.xlabel('Image')
+	fig, ax = plt.subplots(dpi=80, figsize=figsize)
+	ax.bar(label,vgg_time,width=0.8, align='center', edgecolor='gray')
 	plt.ylabel('Time (s)')
+	plt.xticks(rotation=90)
+	plt.savefig('Results/CPU/VGG/ImagesTime.png')
+	plt.close()
+
+	fig, ax = plt.subplots(dpi=80, figsize=figsize)
+	ax.bar(label,resnet_energy,width=0.8, align='center', edgecolor='gray')
+	plt.ylabel('Energy (joules)')
+	plt.xticks(rotation=90)
+	plt.savefig('Results/CPU/RESNET50/ImagesEnergy.png')
+	plt.close()
+
+	fig, ax = plt.subplots(dpi=80, figsize=figsize)
+	ax.bar(label,resnet_time,width=0.8, align='center', edgecolor='gray')
+	plt.ylabel('Time (s)')
+	plt.xticks(rotation=90)
 	plt.savefig('Results/CPU/RESNET50/ImagesTime.png')
-	plt.clf()
-	file.close()
+	plt.close()

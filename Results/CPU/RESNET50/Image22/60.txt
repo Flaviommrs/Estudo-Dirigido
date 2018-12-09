@@ -1,0 +1,11 @@
+# started on Thu Dec  6 11:03:04 2018
+
+
+ Performance counter stats for 'system wide':
+
+     158063,718104        cpu-clock (msec)          #    8,000 CPUs utilized          
+            373,30 Joules power/energy-cores/       #    0,002 K/sec                  
+   139.981.250.175        cpu-cycles                #    0,886 GHz                    
+
+      19,758200587 seconds time elapsed
+

@@ -36,7 +36,7 @@ if __name__ == "__main__":
                 metrics=['acc'])
 
   model.fit(x_train, y_train,
-            epochs=50,
+            epochs=20,
             batch_size=1,
             shuffle=False,
             validation_data=(x_train, y_train))
@@ -56,7 +56,7 @@ if __name__ == "__main__":
                 metrics=['acc'])
 
   model.fit(x_train, y_train,
-            epochs=50,
+            epochs=20,
             batch_size=1,
             shuffle=False,
             validation_data=(x_train, y_train))

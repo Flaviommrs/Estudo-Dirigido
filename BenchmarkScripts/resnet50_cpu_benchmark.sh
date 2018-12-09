@@ -14,7 +14,7 @@ while [ "$i" -le 99 ]
 do
 	j=0
 	mkdir -p $EXAMPLE_RESULTS_PATH_PERFORMANCE$IMAGE$i$SLASH
-	while [ "$i" -le 99 ]
+	while [ "$j" -le 99 ]
 	do
 		touch $EXAMPLE_RESULTS_PATH_PERFORMANCE$IMAGE$i$SLASH$j$FORMAT
 		perf stat -a -e cpu-clock,"power/energy-cores/","cpu-cycles/" -o $EXAMPLE_RESULTS_PATH_PERFORMANCE$IMAGE$i$SLASH$j$FORMAT python3 $TESTS_SCRIPT $i
