@@ -150,22 +150,14 @@ if __name__ == "__main__":
 	plt.savefig('Results/CPU/RESNET50/ImagesTime.png')
 	plt.close()
 
-	with open("Results/CPU/VGG/EnergyData.csv", 'w', newline='') as myfile:
+	with open("Results/CPU/VGG/AvarageData.csv", 'w', newline='') as myfile:
 		wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-		for data in zip(label, vgg_energy):
-			wr.writerow([data[0],data[1]])
+		wr.writerow(['Imagens', 'Energia', 'Tempo'])
+		for data in zip(label, vgg_energy, vgg_time):
+			wr.writerow(data)
 
-	with open("Results/CPU/VGG/TimeData.csv", 'w', newline='') as myfile:
+	with open("Results/CPU/RESNET50/AverageData.csv", 'w', newline='') as myfile:
 		wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-		for data in zip(label, vgg_time):
-			wr.writerow([data[0],data[1]])
-
-	with open("Results/CPU/RESNET50/EnergyData.csv", 'w', newline='') as myfile:
-		wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-		for data in zip(label, resnet_energy):
-			wr.writerow([data[0],data[1]])
-
-	with open("Results/CPU/RESNET50/TimeData.csv", 'w', newline='') as myfile:
-		wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-		for data in zip(label, resnet_time):
-			wr.writerow([data[0],data[1]])
+		wr.writerow(['Imagens', 'Energia', 'Tempo'])
+		for data in zip(label, resnet_energy, resnet_time):
+			wr.writerow(data)
